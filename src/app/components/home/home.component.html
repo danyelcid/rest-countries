@@ -1,1 +1,38 @@
-<p>home works!</p>
+
+<div class="row justify-content-between mb-4">
+  <div class="col-md-6 col-lg-4">
+    <input  class="form-control"
+            #search
+            list="datalistOptions"
+            id="exampleDataList"
+            placeholder="Type to search..."
+            (keyup)="filter(search.value)"
+            >
+      <!--datalist id="datalistOptions" (change)="filter(search.value)">
+        <option [value]="option.name.common" *ngFor="let option of countries">
+      </datalist-->
+
+  </div>
+  <div class="col-md-6 col-lg-4 ">
+    <select #region class="form-select" (change)="filterRegion(region.value)">
+      <option value="" selected>Choose a region</option>
+      <option value="{{reg}}" *ngFor="let reg of regions">{{ reg }}</option>
+
+    </select>
+  </div>
+</div>
+<div class="card-container" style="display: flex; gap:3rem; flex-wrap: wrap; flex-grow: 1; justify-content: space-around;">
+
+  <div class="card" style="width: 18rem;" *ngFor="let country of countries">
+    <img src="{{country.flags.png}}" class="card-img-top" alt="Flag for {{country.name.common}}">
+    <div class="card-body">
+      <h5 class="card-title">{{country.name.common}}</h5>
+      <ul>
+        <li>Population: {{country.population}}</li>
+        <li>Region: {{country.region}}</li>
+        <li>Capital: {{country.capital}}</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
