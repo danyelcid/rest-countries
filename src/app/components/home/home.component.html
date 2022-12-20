@@ -23,7 +23,11 @@
 </div>
 <div class="card-container" style="display: flex; gap:3rem; flex-wrap: wrap; flex-grow: 1; justify-content: space-around;">
 
-  <div class="card" style="width: 18rem;" *ngFor="let country of countries">
+  <div  class="card"
+        role="button"
+        style="width: 18rem;"
+        *ngFor="let country of countries"
+        (click)=" countryDetails( country.cioc ) ">
     <img src="{{country.flags.png}}" class="card-img-top" alt="Flag for {{country.name.common}}">
     <div class="card-body">
       <h5 class="card-title">{{country.name.common}}</h5>

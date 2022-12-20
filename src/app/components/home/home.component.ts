@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RestcountriesService } from '../../services/restcountries.service';
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-home',
@@ -13,8 +15,9 @@ export class HomeComponent implements OnInit {
   countries : any[] = []
   regions : string[] = []
 
-  constructor( private http: HttpClient,
-                private countriesServ: RestcountriesService) {
+  constructor(  private http: HttpClient,
+                private countriesServ: RestcountriesService,
+                private router: Router) {
 
       this.countriesServ.getCountries()
           .subscribe( (data:any) => {
@@ -63,6 +66,11 @@ export class HomeComponent implements OnInit {
     }
 
   }
+   countryDetails( name: string ) {
+
+    this.router.navigate(['/country', name])
+
+   }
 
   ngOnInit(): void {
   }

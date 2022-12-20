@@ -1,1 +1,40 @@
-<p>country works!</p>
+<div class="row">
+  <div class="col my-2 ">
+    <a href="#/home" class="nav-link">
+      <i class="icon ion-md-arrow-round-back"></i>
+    </a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <img  [src]="myCountry['flags'].svg"
+          class="img-fluid"
+          alt="Flag for {{ myCountry['name'].common }}"
+         >  </div>
+  <div class="col-md-6 p-5 border">
+    <div class="row">
+      <div class="col-12">
+        <h1>{{ myCountry['name'].common }}</h1>
+      </div>
+      <div class="col-6"></div>
+      <div class="col-6"></div>
+      <div class="col-12">
+        <p>Border Countries:
+          <span *ngIf="myBorders.length > 0">
+            <a *ngFor="let border of myBorders"
+            class="btn btn-sm btn-outline-secondary ms-1"
+            href="#/country/{{border.cioc}}">
+            {{ border['name'].common }}</a>
+          </span>
+          <span *ngIf="myBorders.length == 0">
+            This country is an Isle
+            <a  [href]="myCountry.maps.openStreetMaps"
+                target="_blank">
+                show on Map
+            </a>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

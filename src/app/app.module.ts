@@ -4,7 +4,6 @@ import { RouterModule } from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { SearchComponent } from './components/search/search.component';
 import { CountryComponent } from './components/country/country.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
@@ -17,7 +16,6 @@ import { ROUTES } from './app.routs';
   declarations: [
     AppComponent,
     HomeComponent,
-    SearchComponent,
     CountryComponent,
     NavbarComponent
   ],

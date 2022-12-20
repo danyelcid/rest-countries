@@ -17,6 +17,7 @@ export class RestcountriesService {
     return this.http.get('https://restcountries.com/v3.1/all');
 
   }
+
   searchByName ( name: string ) {
 
     return this.http.get('https://restcountries.com/v3.1/name/'+name);
@@ -25,7 +26,13 @@ export class RestcountriesService {
 
   searchByRegion ( region: string ) {
 
-    return this.http.get('https://restcountries.com/v3.1/region/'+region);
+    return this.http.get('https://restcountries.com/v3.1/region/siip'+region);
+
+  }
+
+  searchByCode ( code: string ) {
+
+    return this.http.get('https://restcountries.com/v3.1/alpha?codes='+ code);
 
   }
 }
