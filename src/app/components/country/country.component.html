@@ -1,5 +1,5 @@
 <div class="row px-4 ">
-  <div class="col my-4 ">
+  <div class="col mb-5 ">
     <a href="#/home" class="btn btn-sm bg-accent">
       <i class="icon ion-md-arrow-round-back"></i>
       Back
@@ -19,7 +19,7 @@
 
     <div class="row">
 
-      <div class="col-12 mb-md-5 mb-3">
+      <div class="col-12 mb-md-4 mb-3">
         <h1>{{ myCountry[0]['name'].common }}</h1>
       </div>
 
@@ -41,7 +41,7 @@
              <span *ngFor="let l of langs" class="mx-2"> {{ l }} </span></p>
       </div>
 
-      <div class="col-12 mt-lg-5 mb-3">
+      <div class="col-12 mt-lg-4 mb-3">
         <p>Border Countries:
           <span *ngIf="myBorders.length > 0">
             <a *ngFor="let border of myBorders"
