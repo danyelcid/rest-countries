@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RestcountriesService } from '../../services/restcountries.service';
 import { Router } from "@angular/router";
+import { error } from 'protractor';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   countries : any[] = []
   regions : string[] = []
+  hasError: boolean
 
   constructor(  private http: HttpClient,
                 private countriesServ: RestcountriesService,
@@ -37,6 +39,12 @@ export class HomeComponent implements OnInit {
       this.countriesServ.searchByName( search )
       .subscribe( (data:any) => {
         this.countries = data
+      }, (error) =>{
+        if (error['status'] == '404') {
+          this.hasError = true
+          this.countries = []
+        }
+        
       })
 
     } else {

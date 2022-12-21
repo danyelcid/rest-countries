@@ -69,14 +69,16 @@ body span#dark:hover{
 .navbar-brand{
   font-weight: var(--fw-bold);
 }
-
+.navbar-brand:hover,
+.nav-link:hover,
 .navbar-brand,
+.navbar-brand:visited,
 .nav-link{
   color: inherit;
 }
+
 .navbar-brand:hover,
 .nav-link:hover{
-  color: inherit;
   opacity: .75;
 }
 .nav-link{
