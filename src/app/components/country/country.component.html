@@ -1,40 +1,67 @@
-<div class="row">
-  <div class="col my-2 ">
-    <a href="#/home" class="nav-link">
+<div class="row px-4 ">
+  <div class="col my-4 ">
+    <a href="#/home" class="btn btn-sm bg-accent">
       <i class="icon ion-md-arrow-round-back"></i>
+      Back
     </a>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-6">
-    <img  [src]="myCountry['flags'].svg"
+<div class="row px-4 ">
+
+  <div class="col-md-6 mb-5">
+    <img  [src]="myCountry[0].flags.svg"
           class="img-fluid"
-          alt="Flag for {{ myCountry['name'].common }}"
-         >  </div>
-  <div class="col-md-6 p-5 border">
+          alt="Flag for {{ myCountry[0]['name']['common'] }}"
+         >
+  </div>
+
+    <div class="col-md-6 px-md-5 py-md-2">
+
     <div class="row">
-      <div class="col-12">
-        <h1>{{ myCountry['name'].common }}</h1>
+
+      <div class="col-12 mb-5">
+        <h1>{{ myCountry[0]['name'].common }}</h1>
       </div>
-      <div class="col-6"></div>
-      <div class="col-6"></div>
-      <div class="col-12">
+
+      <div class="col-6 ">
+          <p><span class="fw-bold">Native name: </span> {{ nativeName['common'] }} </p>
+          <p><span class="fw-bold">Popularion: </span>{{ myCountry[0]['population'] }}</p>
+          <p><span class="fw-bold">Region: </span>{{ myCountry[0]['region'] }}</p>
+          <p><span class="fw-bold">Subregion: </span>{{ myCountry[0]['subregion'] }}</p>
+          <p><span class="fw-bold">Capital: </span>{{ myCountry[0]['capital'] }}</p>
+      </div>
+
+      <div class="col-6 ">
+          <p><span class="fw-bold">Top level domain: </span>{{ myCountry[0].tld[0] }} </p>
+          <p>
+            <span class="fw-bold">Currencies: </span>
+             <span *ngFor="let cur of currencies" class="mx-2"> {{ cur }} </span> </p>
+          <p>
+            <span class="fw-bold">Languages</span>
+             <span *ngFor="let l of langs" class="mx-2"> {{ l }} </span></p>
+      </div>
+
+      <div class="col-12 mt-5">
         <p>Border Countries:
           <span *ngIf="myBorders.length > 0">
             <a *ngFor="let border of myBorders"
-            class="btn btn-sm btn-outline-secondary ms-1"
+            class="btn btn-sm bg-accent m-2"
             href="#/country/{{border.cioc}}">
             {{ border['name'].common }}</a>
           </span>
           <span *ngIf="myBorders.length == 0">
-            This country is an Isle
-            <a  [href]="myCountry.maps.openStreetMaps"
-                target="_blank">
-                show on Map
+            This country has no land borders.
+            <a  [href]="myCountry[0].maps.openStreetMaps"
+                target="_blank"
+                class="btn btn-sm bg-accent">
+                Show on Map
             </a>
           </span>
         </p>
       </div>
+
     </div>
   </div>
+
+
 </div>

@@ -13,4 +13,14 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleColor(value: number){
+    const body = document.querySelector('body')
+
+    if (value == 0){
+      body.classList.add('dark')
+    } else{
+      body.classList.remove('dark')
+    }
+  }
+
 }

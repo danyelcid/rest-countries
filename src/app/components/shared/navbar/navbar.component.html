@@ -1,12 +1,11 @@
-<nav class="navbar navbar-expand-lg bg-light my-4">
-    <div class="container-fluid">
+<nav class="navbar bg-accent mb-4 py-4">
+    <div class="container">
       <a class="navbar-brand" href="#">Where in the World</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <div class="navbar-right" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+          <span class="nav-link theme-toggler" id="dark" (click)="toggleColor(0)"> <i class="icon ion-md-moon"></i> Dark Mode</span>
+          <span class="nav-link theme-toggler" id="light" (click)="toggleColor(1)"> <i class="icon ion-md-sunny"></i> Light Mode</span>
         </div>
       </div>
     </div>

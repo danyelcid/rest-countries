@@ -26,7 +26,7 @@ export class RestcountriesService {
 
   searchByRegion ( region: string ) {
 
-    return this.http.get('https://restcountries.com/v3.1/region/siip'+region);
+    return this.http.get('https://restcountries.com/v3.1/region/'+region);
 
   }
 

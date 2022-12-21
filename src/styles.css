@@ -1,1 +1,186 @@
 /* You can add global styles to this file, and also import other style files */
+ @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap');
+
+:root{
+  --clr-Dark-Blue: hsl(209, 23%, 22%);          /*  (Dark Mode Elements) */
+  --clr-Very-Dark-Blue-1: hsl(207, 26%, 17%);   /*  (Dark Mode Background) */
+  --clr-Very-Dark-Blue-2: hsl(200, 15%, 8%);    /*  (Light Mode Text) */
+  --clr-Dark-Gray: hsl(0, 0%, 52%);             /*  (Light Mode Input) */
+  --clr-very-light-gray: hsl(0, 0%, 98%);       /*  (Light Mode Background) */
+  --clr-white: hsl(0, 0%, 100%);                /*  (Dark Mode Text & Light Mode Elements) */
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 600;
+  --fw-bold: 800;
+
+}
+*, *::after, *::before{
+  transition: all .25s ease-in-out;
+}
+
+
+body
+{
+  font-size: 14px;
+  font-weight: var(--fw-regular);
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--clr-very-light-gray);
+  color: var(--clr-Very-Dark-Blue-2);
+}
+
+body .bg-accent{
+  background-color: var(--clr-white);
+}
+
+body span#light{
+  display: none;
+  visibility: hidden;
+}
+
+body.dark{
+  color: var(--clr-white) ;
+  background-color: var(--clr-Very-Dark-Blue-1) ;
+}
+
+body.dark .bg-accent{
+  background-color: var(--clr-Dark-Blue);
+  color: var(--clr-white);
+}
+body.dark span#light{
+  display: block;
+  visibility: visible;
+}
+body.dark span#light:hover{
+  font-weight: var(--fw-bold);
+  color: var(--clr-white);
+}
+body.dark span#dark{
+  display: none;
+  visibility: hidden;
+}
+body span#dark:hover{
+  font-weight: var(--fw-bold);
+  color: var(--clr-Very-Dark-Blue-2);
+}
+
+/* Navbar */
+
+.navbar-brand{
+  font-weight: var(--fw-bold);
+}
+
+.navbar-brand,
+.nav-link{
+  color: inherit;
+}
+.navbar-brand:hover,
+.nav-link:hover{
+  color: inherit;
+  opacity: .75;
+}
+.nav-link{
+  cursor: pointer;
+}
+
+.card-container{
+  display: flex;
+   gap:2rem;
+   flex-wrap: wrap;
+   flex-grow: 1;
+   justify-content: space-around;
+}
+
+.card{
+  width: 16.5rem;
+}
+.card .card-header{
+  height: 10rem;
+  padding: 0;
+}
+.card-header img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body ul{
+  list-style: none;
+  padding-left: 0;
+}
+.col-form-label{
+  font-size: 1.1rem;
+}
+.col-form-label, .form-control,
+.col-form-label:focus, .form-control:focus{
+  padding: .75rem 1rem;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+.dropdown{
+  position: relative;
+}
+.dropdown:hover{
+  cursor: pointer;
+}
+
+.dropdown .dropdown-title{
+  display: block;
+  padding: 1rem 1.5rem;
+  height: 50px;
+  font-weight: var(--fw-medium);
+  width: 16rem;
+
+}
+.dropdown i{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+}
+
+.dropdown i::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: .75rem;
+  height: .75rem;
+  border-left: var(--clr-Very-Dark-Blue-2) solid 4px;
+  border-top: var(--clr-Very-Dark-Blue-2) solid 4px;
+  rotate: -45deg;
+  transition: all 250ms ease-in-out;
+}
+body.dark .dropdown i::after{
+  border-left: var(--clr-white) solid 4px;
+  border-top: var(--clr-white) solid 4px;
+}
+
+.dropdown.active i{
+  rotate: -90deg;
+  transition: all 250ms ease-in-out;
+
+}
+.dropdown .options{
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 3.75rem;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem;
+  z-index: 999;
+}
+.dropdown.active .options{
+  visibility: visible;
+  opacity: 1;
+}
+.dropdown .option{
+  padding:  .25rem .5rem;
+}
+
+

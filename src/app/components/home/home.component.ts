@@ -32,8 +32,6 @@ export class HomeComponent implements OnInit {
   }
 
   filter ( search: string) {
-    console.log(search);
-
 
     if ( search !== ""){
       this.countriesServ.searchByName( search )
@@ -47,7 +45,10 @@ export class HomeComponent implements OnInit {
         this.countries = data
       })
     }
+    
+    const dropdown = document.querySelector('#dropdown')
 
+    dropdown.classList.remove('active')
   }
 
   filterRegion( region: string){
@@ -65,10 +66,27 @@ export class HomeComponent implements OnInit {
       })
     }
 
+    const dropdown = document.querySelector('#dropdown')
+
+    dropdown.classList.remove('active')
+
+
   }
    countryDetails( name: string ) {
 
     this.router.navigate(['/country', name])
+
+   }
+
+   showOptions( ){
+
+    const dropdown = document.querySelector('#dropdown')
+
+    if (!dropdown.classList.contains('active')){
+      dropdown.classList.add('active')
+    } else {
+      dropdown.classList.remove('active')
+    }
 
    }
 
