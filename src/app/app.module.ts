@@ -11,13 +11,15 @@ import { HttpClientModule } from "@angular/common/http";
 
 //Routs to use
 import { ROUTES } from './app.routs';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CountryComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

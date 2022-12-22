@@ -16,11 +16,12 @@ export class HomeComponent implements OnInit {
   countries : any[] = []
   regions : string[] = []
   hasError: boolean
+  isLoading: boolean
 
   constructor(  private http: HttpClient,
                 private countriesServ: RestcountriesService,
                 private router: Router) {
-
+      this.isLoading = true            
       this.countriesServ.getCountries()
           .subscribe( (data:any) => {
             this.countries = data
@@ -29,6 +30,7 @@ export class HomeComponent implements OnInit {
                 this.regions.push(country.region)
               }
             })
+            this.isLoading = false
           })
 
   }
@@ -36,13 +38,17 @@ export class HomeComponent implements OnInit {
   filter ( search: string) {
 
     if ( search !== ""){
+      this.isLoading = true
       this.countriesServ.searchByName( search )
       .subscribe( (data:any) => {
         this.countries = data
+        this.hasError = false
+        this.isLoading = false
       }, (error) =>{
         if (error['status'] == '404') {
           this.hasError = true
           this.countries = []
+          this.isLoading = false
         }
         
       })
@@ -51,6 +57,8 @@ export class HomeComponent implements OnInit {
       this.countriesServ.getCountries()
       .subscribe( (data:any) => {
         this.countries = data
+        this.hasError = false
+        this.isLoading = false
       })
     }
     
@@ -60,17 +68,21 @@ export class HomeComponent implements OnInit {
   }
 
   filterRegion( region: string){
-
+      this.isLoading = true
     if ( region !== ""){
       this.countriesServ.searchByRegion( region )
       .subscribe( (data:any) => {
         this.countries = data
+        this.hasError = false
+        this.isLoading = false
       })
 
     } else {
       this.countriesServ.getCountries()
       .subscribe( (data:any) => {
         this.countries = data
+        this.hasError = false
+        this.isLoading = false
       })
     }
 

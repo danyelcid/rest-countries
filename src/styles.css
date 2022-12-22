@@ -2,12 +2,14 @@
  @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap');
 
 :root{
-  --clr-Dark-Blue: hsl(209, 23%, 22%);          /*  (Dark Mode Elements) */
-  --clr-Very-Dark-Blue-1: hsl(207, 26%, 17%);   /*  (Dark Mode Background) */
-  --clr-Very-Dark-Blue-2: hsl(200, 15%, 8%);    /*  (Light Mode Text) */
-  --clr-Dark-Gray: hsl(0, 0%, 52%);             /*  (Light Mode Input) */
-  --clr-very-light-gray: hsl(0, 0%, 98%);       /*  (Light Mode Background) */
-  --clr-white: hsl(0, 0%, 100%);                /*  (Dark Mode Text & Light Mode Elements) */
+  --clr-Dark-Blue: hsl(209, 23%, 22%);                  /*  (Dark Mode Elements) */
+  --clr-Dark-Blue-transparent: hsl(209, 23%, 22%, .25);   /*  (Dark Mode Elements) */
+  --clr-Very-Dark-Blue-1: hsl(207, 26%, 17%);           /*  (Dark Mode Background) */
+  --clr-Very-Dark-Blue-2: hsl(200, 15%, 8%);            /*  (Light Mode Text) */
+  --clr-Dark-Gray: hsl(0, 0%, 52%);                     /*  (Light Mode Input) */
+  --clr-Dark-Gray-transparent: hsl(0, 0%, 52%, .25);      /*  (Light Mode Input) */
+  --clr-very-light-gray: hsl(0, 0%, 98%);               /*  (Light Mode Background) */
+  --clr-white: hsl(0, 0%, 100%);                        /*  (Dark Mode Text & Light Mode Elements) */
 
   --fw-light: 300;
   --fw-regular: 400;
@@ -105,7 +107,9 @@ body span#dark:hover{
   height: 100%;
   object-fit: cover;
 }
-
+.card:hover img {
+  scale: 1.05;
+}
 .card-body ul{
   list-style: none;
   padding-left: 0;
@@ -185,4 +189,43 @@ body.dark .dropdown i::after{
   padding:  .25rem .5rem;
 }
 
+/* country coponent*/
+.country-name{
+  font-weight: var(--fw-bold);
+}
 
+ .loading-conttainer{
+  background-color: var(--clr-Dark-Blue-transparent);
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+}
+.dark .loading-conttainer{
+  background-color: var(--clr-Dark-Gray-transparent);
+}
+
+.loading-conttainer{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  z-index: 999999;
+}
+
+svg{
+  margin: auto; 
+  background: transparent; 
+  display: block; 
+}
+
+svg path{
+  fill: none ;
+  stroke: #0a0a0a ;
+  stroke-width: 8 ;
+  stroke-dasharray: 42.76482137044271 42.76482137044271;
+}
+.dark svg path{
+  stroke: var(--clr-very-light-gray) ;
+}

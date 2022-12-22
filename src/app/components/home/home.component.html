@@ -7,7 +7,7 @@
         <input  class="form-control bg-accent"
         #search
         placeholder="Type to search..."
-        (keyup)="filter(search.value)">
+        (keyup.enter)="filter(search.value)">
       </div>
     </div>
   </div>
@@ -19,6 +19,10 @@
       </div>
 
       <div class="options bg-accent">
+        <p  (click)="filterRegion('')"
+            class="option">
+            Show All
+        </p>
         <p  *ngFor="let region of regions"
             (click)="filterRegion(region)"
             class="option">
@@ -28,12 +32,15 @@
     </div>
   </div>
 </div>
+
+<app-loading *ngIf="isLoading"></app-loading>
+
 <div *ngIf="hasError" class="alert alert-danger d-flex align-items-center" role="alert">
   <div>
-    <strong> <i class="icon ion-md-warning" style="font-size: 20px;"></i> Sorry</strong> Your searched name produced no results, please consider changing it.
+    <strong> <i class="icon ion-md-warning" style="font-size: 20px;"></i> Sorry</strong>
+     Your searched name produced no results. Please consider changing it, or select a region
   </div>
 </div>
-
 
 <div class="card-container" role="main">
 
@@ -42,7 +49,7 @@
         *ngFor="let country of countries"
         (click)=" countryDetails( country.cioc ) ">
     <div class="card-header">
-      <img [src]="country.flags.png" class="card-img-top" alt="Flag for {{country.name.common}}">
+      <img [src]="country.flags.png" class="card-img-top" alt="Flag for {{country.name.common}}" loading="lazy">
     </div>
     <div class="card-body bg-accent">
       <h5 class="card-title fw-bold">{{country.name.common}}</h5>

@@ -1,11 +1,14 @@
+<app-loading *ngIf="isLoading"></app-loading>
+
 <div class="row px-4 ">
   <div class="col mb-5 ">
-    <a href="#/home" class="btn btn-sm bg-accent">
+    <a href="#/home" class="btn btn-sm bg-accent font-bold">
       <i class="icon ion-md-arrow-round-back"></i>
       Back
     </a>
   </div>
 </div>
+
 <div class="row px-4 " role="main">
 
   <div class="col-md-5 mb-md-5 mb-3">
@@ -20,7 +23,7 @@
     <div class="row">
 
       <div class="col-12 mb-md-4 mb-3">
-        <h1>{{ myCountry[0]['name'].common }}</h1>
+        <h2 class="country-name">{{ myCountry[0]['name'].common }}</h2>
       </div>
 
       <div class="col-lg-6 " role="contentinfo">
